@@ -88,9 +88,9 @@
      borderopacity="1.0"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:zoom="0.7063931"
-     inkscape:cx="-956.97424"
-     inkscape:cy="1620.2027"
+     inkscape:zoom="1.4127862"
+     inkscape:cx="-1039.7893"
+     inkscape:cy="1887.4052"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -1488,7 +1488,7 @@
          y="-103.57606"
          x="-1334.3279"
          sodipodi:role="line"
-         id="tspan17">你只需要使用兩個按鍵（B 和 N）。</tspan><tspan
+         id="tspan17">你只需要使用兩個按鍵（左鍵 和 右鍵）。</tspan><tspan
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.3352px;line-height:1.25;font-family:'Open Sans';-inkscape-font-specification:'Open Sans';stroke-width:1.06676px"
          y="-76.907051"
          x="-1334.3279"
@@ -1667,9 +1667,9 @@
        inkscape:export-ydpi="44.238003"><tspan
          x="257.38773"
          y="885.32825"
-         id="tspan11"><tspan
+         id="tspan10"><tspan
            style="font-size:40px;line-height:125%"
-           id="tspan9">請按 空白鍵 繼續</tspan></tspan></text>
+           id="tspan2">請按 空白鍵 繼續</tspan></tspan></text>
     <text
        xml:space="preserve"
        style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;enable-background:accumulate"
@@ -1745,7 +1745,7 @@
          x="-1289.0349"
          y="995.02795"
          style="font-size:20.511px;line-height:1.25"
-         id="tspan42">G是子音，因此按下B鍵</tspan><tspan
+         id="tspan42">G是子音，因此按下左鍵</tspan><tspan
          sodipodi:role="line"
          x="-1289.0349"
          y="1005.4019"
@@ -1798,7 +1798,7 @@
          x="-1305.6853"
          sodipodi:role="line"
          style="font-size:20.511px;line-height:1.25"
-         id="tspan48">4是偶數，因此按下N鍵</tspan><tspan
+         id="tspan48">4是偶數，因此按下右鍵</tspan><tspan
          y="1458.2284"
          x="-1305.6853"
          sodipodi:role="line"
@@ -3058,7 +3058,7 @@
                    id="tspan4991-1-2-6-1"
                    x="554.77209"
                    y="-102.22421"
-                   style="font-size:17.6308px;line-height:1.25">請按 B鍵</tspan></text>
+                   style="font-size:17.6308px;line-height:1.25">請按 左鍵</tspan></text>
               <text
                  inkscape:export-ydpi="90"
                  inkscape:export-xdpi="90"
@@ -3072,7 +3072,7 @@
                    x="654.21008"
                    id="tspan4995-0-3-0-7"
                    sodipodi:role="line"
-                   style="font-size:17.6308px;line-height:1.25">請按 N鍵</tspan></text>
+                   style="font-size:17.6308px;line-height:1.25">請按 右鍵</tspan></text>
               <text
                  inkscape:export-ydpi="90"
                  inkscape:export-xdpi="90"
@@ -3355,7 +3355,7 @@
                  x="829.77209"
                  id="tspan3374-5-0-6-8"
                  sodipodi:role="line"
-                 style="font-size:17.6308px;line-height:1.25">請按 B鍵</tspan></text>
+                 style="font-size:17.6308px;line-height:1.25">請按 左鍵</tspan></text>
             <text
                xml:space="preserve"
                style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;enable-background:accumulate"
@@ -3369,7 +3369,7 @@
                  id="tspan3378-4-1-3-9"
                  x="929.21008"
                  y="-106.94467"
-                 style="font-size:17.6308px;line-height:1.25">請按 N鍵</tspan></text>
+                 style="font-size:17.6308px;line-height:1.25">請按 右鍵</tspan></text>
           </g>
         </g>
       </g>
@@ -3519,7 +3519,7 @@
                    id="tspan4991-1-2-6-1-3"
                    x="554.77209"
                    y="-102.22421"
-                   style="font-size:17.6308px;line-height:1.25">請按 B鍵</tspan></text>
+                   style="font-size:17.6308px;line-height:1.25">請按 左鍵</tspan></text>
               <text
                  inkscape:export-ydpi="90"
                  inkscape:export-xdpi="90"
@@ -3533,7 +3533,7 @@
                    x="654.21008"
                    id="tspan4995-0-3-0-7-6"
                    sodipodi:role="line"
-                   style="font-size:17.6308px;line-height:1.25">請按 N鍵</tspan></text>
+                   style="font-size:17.6308px;line-height:1.25">請按 右鍵</tspan></text>
               <text
                  inkscape:export-ydpi="90"
                  inkscape:export-xdpi="90"
@@ -3816,7 +3816,7 @@
                  x="829.77209"
                  id="tspan3374-5-0-6-8-0"
                  sodipodi:role="line"
-                 style="font-size:17.6308px;line-height:1.25">請按 B鍵</tspan></text>
+                 style="font-size:17.6308px;line-height:1.25">請按 左鍵</tspan></text>
             <text
                xml:space="preserve"
                style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;enable-background:accumulate"
@@ -3830,7 +3830,7 @@
                  id="tspan3378-4-1-3-9-5"
                  x="929.21008"
                  y="-106.94467"
-                 style="font-size:17.6308px;line-height:1.25">請按 N鍵</tspan></text>
+                 style="font-size:17.6308px;line-height:1.25">請按 右鍵</tspan></text>
           </g>
         </g>
       </g>
@@ -4111,7 +4111,7 @@
                    id="tspan4991-1-2-6-1-3-2"
                    x="554.77209"
                    y="-102.22421"
-                   style="font-size:17.6308px;line-height:1.25">請按 B鍵</tspan></text>
+                   style="font-size:17.6308px;line-height:1.25">請按 左鍵</tspan></text>
               <text
                  inkscape:export-ydpi="90"
                  inkscape:export-xdpi="90"
@@ -4125,7 +4125,7 @@
                    x="654.21008"
                    id="tspan4995-0-3-0-7-6-6"
                    sodipodi:role="line"
-                   style="font-size:17.6308px;line-height:1.25">請按 N鍵</tspan></text>
+                   style="font-size:17.6308px;line-height:1.25">請按 右鍵</tspan></text>
               <text
                  inkscape:export-ydpi="90"
                  inkscape:export-xdpi="90"
@@ -4408,7 +4408,7 @@
                  x="829.77209"
                  id="tspan3374-5-0-6-8-0-5"
                  sodipodi:role="line"
-                 style="font-size:17.6308px;line-height:1.25">請按 B鍵</tspan></text>
+                 style="font-size:17.6308px;line-height:1.25">請按 左鍵</tspan></text>
             <text
                xml:space="preserve"
                style="color:#000000;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:0%;font-family:FreeSans;-inkscape-font-specification:FreeSans;text-indent:0;text-align:start;text-decoration:none;text-decoration-line:none;letter-spacing:0px;word-spacing:0px;text-transform:none;writing-mode:lr-tb;direction:ltr;text-anchor:start;display:inline;overflow:visible;visibility:visible;fill:#ff0000;fill-opacity:1;fill-rule:nonzero;stroke:none;stroke-width:1px;marker:none;enable-background:accumulate"
@@ -4422,7 +4422,7 @@
                  id="tspan3378-4-1-3-9-5-7"
                  x="929.21008"
                  y="-106.94467"
-                 style="font-size:17.6308px;line-height:1.25">請按 N鍵</tspan></text>
+                 style="font-size:17.6308px;line-height:1.25">請按 右鍵</tspan></text>
           </g>
         </g>
       </g>
