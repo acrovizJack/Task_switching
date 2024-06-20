@@ -415,7 +415,7 @@ async function experimentInit() {
     name : 'ErrorImage_2', units : undefined, 
     image : 'stimuli/task1.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : [0.5, 0.4],
+    ori : 0.0, pos : [0.5, 0.125], size : [0.5, 0.4],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -1920,7 +1920,6 @@ function Letter_FeedbackRoutineBegin(snapshot) {
     }
     
     FeedBack_LetterTask.setText(feedbackText);
-    ErrorImage_2.setPos([0.5, (- 0.125)]);
     // keep track of which components have finished
     Letter_FeedbackComponents = [];
     Letter_FeedbackComponents.push(back_img_8);
