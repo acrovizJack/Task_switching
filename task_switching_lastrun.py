@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on June 20, 2024, at 15:37
+    on July 02, 2024, at 16:26
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -401,7 +401,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='back_img', 
         image='stimuli/task_switch_backimg.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, 0), size=(1.775,1),
+        ori=0.0, pos=(0, 0), size=(1.775,0.995),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-2.0)
@@ -409,7 +409,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='instr_image', 
         image='default.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(1.25, 0.75),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-3.0)
@@ -427,7 +427,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='Instr_numbers_Only', 
         image='stimuli/readynumbers.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(1.25, 0.75),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
@@ -450,6 +450,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
+    # Run 'Begin Experiment' code from NumberTask_Code
+    # Initialize previous values to None for the first trial
+    previousNumber = None
+    previousLetter = None
     NumberStim = visual.TextStim(win=win, name='NumberStim',
         text='',
         font='Arial',
@@ -479,7 +483,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='ErrorImage', 
         image='stimuli/task2.png', mask=None, anchor='center',
-        ori=0.0, pos=[0,0], size=(0.5, 0.4),
+        ori=0.0, pos=[0,0], size=(0.6, 0.4),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-3.0)
@@ -497,7 +501,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='Readyletter_img', 
         image='stimuli/readyletters.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(1.25, 0.75),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
@@ -520,6 +524,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
+    # Run 'Begin Experiment' code from LetterTask_Code
+    # Initialize previous values to None for the first trial
+    previousNumber = None
+    previousLetter = None
     LetterStim = visual.TextStim(win=win, name='LetterStim',
         text='',
         font='Arial',
@@ -549,7 +557,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='ErrorImage_2', 
         image='stimuli/task1.png', mask=None, anchor='center',
-        ori=0.0, pos=[0,0], size=(0.5, 0.4),
+        ori=0.0, pos=[0.5,0.125], size=(0.5, 0.4),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-3.0)
@@ -567,7 +575,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         win=win,
         name='ReadyMix_img', 
         image='stimuli/readylettersnumbers.png', mask=None, anchor='center',
-        ori=0.0, pos=(0, -0.05), size=(1.25, 0.75),
+        ori=0.0, pos=(0, -0.05), size=(1.5, 0.75),
         color=[1,1,1], colorSpace='rgb', opacity=None,
         flipHoriz=False, flipVert=False,
         texRes=128.0, interpolate=True, depth=-1.0)
@@ -638,7 +646,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     Thank_you = visual.TextStim(win=win, name='Thank_you',
         text='',
         font='Arial',
-        pos=[0,0], height=0.1, wrapWidth=None, ori=0.0, 
+        pos=[0,0], height=0.05, wrapWidth=None, ori=0.0, 
         color=[-0.6078, -0.6706, -0.0118], colorSpace='rgb', opacity=None, 
         languageStyle='LTR',
         depth=-2.0);
@@ -994,7 +1002,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    trials = data.TrialHandler(nReps=1.0, method='random', 
+    trials = data.TrialHandler(nReps=5.0, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trials')
@@ -1026,8 +1034,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         # update component parameters for each repeat
         thisExp.addData('NumberTask_Practice.started', globalClock.getTime(format='float'))
         # Run 'Begin Routine' code from NumberTask_Code
-        number = ['1','2','3','4','5','6','7','8']
-        letter = ['A','E','I','U','G','M','K','R']
         # Define the base position
         basePos = 0.125
         
@@ -1036,12 +1042,33 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             [-basePos, -basePos],  # Bottom-left
             [basePos, -basePos]    # Bottom-right
         ]
-        shuffle(bottomQuadrants)
-        shuffle(number)
-        shuffle(letter)
         
-        number = number[0]
-        letter = letter[0]
+        
+        def get_new_combination(previousNumber, previousLetter):
+            # Shuffle the quadrants, numbers, and letters
+            shuffle(bottomQuadrants)
+            shuffle(number)
+            shuffle(letter)
+        
+            # Ensure the new combination is different from the previous one
+            newNumber = number[0]
+            newLetter = letter[0]
+        
+            while newNumber == previousNumber or newLetter == previousLetter:
+                shuffle(number)
+                shuffle(letter)
+                newNumber = number[0]
+                newLetter = letter[0]
+        
+            return newNumber, newLetter
+        
+        # Example usage:
+        number = ['1','2','3','4','5','6','7','8']
+        letter = ['A','E','I','U','G','M','K','R']
+        
+        # Get a new combination ensuring it's different from the previous one
+        number, letter = get_new_combination(previousNumber, previousLetter)
+        
         # Randomly select a quadrant
         selectedQuadrant = bottomQuadrants[0]
         
@@ -1203,6 +1230,10 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             if hasattr(thisComponent, "setAutoDraw"):
                 thisComponent.setAutoDraw(False)
         thisExp.addData('NumberTask_Practice.stopped', globalClock.getTime(format='float'))
+        # Run 'End Routine' code from NumberTask_Code
+        # Store the current values for the next trial
+        previousNumber = number
+        previousLetter = letter
         # check responses
         if NumberResponse.keys in ['', [], None]:  # No response was made
             NumberResponse.keys = None
@@ -1412,7 +1443,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-    # completed 1.0 repeats of 'trials'
+    # completed 5.0 repeats of 'trials'
     
     
     # --- Prepare to start Routine "ReadyLetters" ---
@@ -1552,7 +1583,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    trials_2 = data.TrialHandler(nReps=1.0, method='random', 
+    trials_2 = data.TrialHandler(nReps=5.0, method='random', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='trials_2')
@@ -1595,12 +1626,28 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             [-basePos, basePos],   # Top-left
         ]
         
-        shuffle(quadrants)
-        shuffle(number)
-        shuffle(letter)
+        def get_new_combination(previousNumber, previousLetter):
+            # Shuffle the quadrants, numbers, and letters
+            shuffle(quadrants)
+            shuffle(number)
+            shuffle(letter)
+        
+            # Ensure the new combination is different from the previous one
+            newNumber = number[0]
+            newLetter = letter[0]
+        
+            while newNumber == previousNumber or newLetter == previousLetter:
+                shuffle(number)
+                shuffle(letter)
+                newNumber = number[0]
+                newLetter = letter[0]
+        
+            return newNumber, newLetter
+        
+        # Get a new combination ensuring it's different from the previous one
+        number, letter = get_new_combination(previousNumber, previousLetter)
+        
         # Randomly select a quadrant
-        number = number[0]
-        letter = letter[0]
         selectedQuadrant = quadrants[0]
         
         # Set the stimulus position
@@ -1612,6 +1659,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 correctKey = 'right'
             else:  # Consonant
                 correctKey = 'left'
+        
         LetterStim.setPos(stimPos)
         LetterStim.setText(letter+str(number))
         LetterResponse.keys = []
@@ -1806,7 +1854,6 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         #    ErrorImage.setAutoDraw(False)
         
         FeedBack_LetterTask.setText(feedbackText)
-        ErrorImage_2.setPos([0.5,-0.125])
         # keep track of which components have finished
         Letter_FeedbackComponents = [back_img_8, FeedBack_LetterTask, ErrorImage_2]
         for thisComponent in Letter_FeedbackComponents:
@@ -1969,7 +2016,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         if thisSession is not None:
             # if running in a Session with a Liaison client, send data up to now
             thisSession.sendExperimentData()
-    # completed 1.0 repeats of 'trials_2'
+    # completed 5.0 repeats of 'trials_2'
     
     
     # --- Prepare to start Routine "ReadyMixed" ---
@@ -2109,7 +2156,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
-    Block = data.TrialHandler(nReps=5.0, method='sequential', 
+    Block = data.TrialHandler(nReps=6.0, method='sequential', 
         extraInfo=expInfo, originPath=-1,
         trialList=[None],
         seed=None, name='Block')
@@ -2237,8 +2284,8 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             thisExp.addData('Mixed_Task.started', globalClock.getTime(format='float'))
             # Run 'Begin Routine' code from code_3
             # Presetting the variables used in Task-switching
-            numlist = ['1','2','3','4','5','6','7','8']
-            letterlist = ['A','E','I','U','G','M','K','R']
+            number = ['1','2','3','4','5','6','7','8']
+            letter = ['A','E','I','U','G','M','K','R']
             
             # Define the base position
             basePos = 0.125
@@ -2253,14 +2300,28 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 [basePos, -basePos]   # Bottom-right
             ]
             
-            shuffle(topPositions)
-            shuffle(bottomPositions)
-            shuffle(numlist)
-            shuffle(letterlist)
+            def get_new_combination(previousNumber, previousLetter):
+                # Shuffle the quadrants, numbers, and letters
+                shuffle(topPositions)
+                shuffle(bottomPositions)
+                shuffle(number)
+                shuffle(letter)
             
-            # Randomly select a quadrant
-            number = numlist[0]
-            letter = letterlist[0]
+                # Ensure the new combination is different from the previous one
+                newNumber = number[0]
+                newLetter = letter[0]
+            
+                while newNumber == previousNumber or newLetter == previousLetter:
+                    shuffle(number)
+                    shuffle(letter)
+                    newNumber = number[0]
+                    newLetter = letter[0]
+            
+                return newNumber, newLetter
+            
+            # Get a new combination ensuring it's different from the previous one
+            number, letter = get_new_combination(previousNumber, previousLetter)
+            
             if taskOrder == 'letter':
                 selectedQuadrant = topPositions[0]
             elif taskOrder == 'number':
@@ -2452,6 +2513,11 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
             trialtypelist.append(trialType)
             tasktypelist.append(taskType)
             acc_list.append(MixedResponse.corr)
+            
+            # Store the current values for the next trial
+            previousNumber = number
+            previousLetter = letter
+            previousTask = taskType
             # check responses
             if MixedResponse.keys in ['', [], None]:  # No response was made
                 MixedResponse.keys = None
@@ -2669,7 +2735,7 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
                 thisSession.sendExperimentData()
         # completed switchInterval repeats of 'trials_3'
         
-    # completed 5.0 repeats of 'Block'
+    # completed 6.0 repeats of 'Block'
     
     
     # --- Prepare to start Routine "end" ---
@@ -2723,13 +2789,13 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     # Store metrics in variables for display in traditional Chinese
     # Combine metrics into one text component
     performance_report_text = (
-        f"重複試驗平均反應時間: {mean_repeat_rt:.2f} 毫秒\n\n"
-        f"切換試驗平均反應時間: {mean_switch_rt:.2f} 毫秒\n\n"
+        f"重複試驗平均反應時間: {mean_repeat_rt:.2f} 秒\n\n"
+        f"切換試驗平均反應時間: {mean_switch_rt:.2f} 秒\n\n"
         f"重複試驗正確率: {repeat_accuracy:.2f}%\n\n"
         f"切換試驗正確率: {switch_accuracy:.2f}%\n\n"
-        f"切換成本: {switch_cost:.2f} 毫秒"
+        f"切換成本: {switch_cost:.2f} 秒"
     )
-    Thank_you.setPos(stimPos)
+    Thank_you.setPos((0,0))
     Thank_you.setText(performance_report_text)
     # keep track of which components have finished
     endComponents = [back_img_11, Thank_you]

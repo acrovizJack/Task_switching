@@ -163,6 +163,8 @@ var key_resp_2;
 var NumberTask_PracticeClock;
 var back_img_2;
 var grid;
+var previousNumber;
+var previousLetter;
 var NumberStim;
 var NumberResponse;
 var FeedbackClock;
@@ -217,7 +219,7 @@ async function experimentInit() {
     name : 'back_img', units : undefined, 
     image : 'stimuli/task_switch_backimg.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : [1.775, 1],
+    ori : 0.0, pos : [0, 0], size : [1.775, 0.995],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -2.0 
@@ -227,7 +229,7 @@ async function experimentInit() {
     name : 'instr_image', units : undefined, 
     image : 'default.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.25, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -249,7 +251,7 @@ async function experimentInit() {
     name : 'Instr_numbers_Only', units : undefined, 
     image : 'stimuli/readynumbers.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.25, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -278,6 +280,10 @@ async function experimentInit() {
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
   });
+  // Run 'Begin Experiment' code from NumberTask_Code
+  previousNumber = null;
+  previousLetter = null;
+  
   NumberStim = new visual.TextStim({
     win: psychoJS.window,
     name: 'NumberStim',
@@ -321,7 +327,7 @@ async function experimentInit() {
     name : 'ErrorImage', units : undefined, 
     image : 'stimuli/task2.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, 0], size : [0.5, 0.4],
+    ori : 0.0, pos : [0, 0], size : [0.6, 0.4],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -3.0 
@@ -343,7 +349,7 @@ async function experimentInit() {
     name : 'Readyletter_img', units : undefined, 
     image : 'stimuli/readyletters.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.25, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -372,6 +378,10 @@ async function experimentInit() {
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
   });
+  // Run 'Begin Experiment' code from LetterTask_Code
+  previousNumber = null;
+  previousLetter = null;
+  
   LetterStim = new visual.TextStim({
     win: psychoJS.window,
     name: 'LetterStim',
@@ -437,7 +447,7 @@ async function experimentInit() {
     name : 'ReadyMix_img', units : undefined, 
     image : 'stimuli/readylettersnumbers.png', mask : undefined,
     anchor : 'center',
-    ori : 0.0, pos : [0, (- 0.05)], size : [1.25, 0.75],
+    ori : 0.0, pos : [0, (- 0.05)], size : [1.5, 0.75],
     color : new util.Color([1,1,1]), opacity : undefined,
     flipHoriz : false, flipVert : false,
     texRes : 128.0, interpolate : true, depth : -1.0 
@@ -1193,10 +1203,10 @@ function ReadyNumbersRoutineEnd(snapshot) {
 }
 
 
-var number;
-var letter;
 var basePos;
 var bottomQuadrants;
+var number;
+var letter;
 var selectedQuadrant;
 var stimPos;
 var correctKey;
@@ -1214,15 +1224,26 @@ function NumberTask_PracticeRoutineBegin(snapshot) {
     // update component parameters for each repeat
     psychoJS.experiment.addData('NumberTask_Practice.started', globalClock.getTime());
     // Run 'Begin Routine' code from NumberTask_Code
-    number = ["1", "2", "3", "4", "5", "6", "7", "8"];
-    letter = ["A", "E", "I", "U", "G", "M", "K", "R"];
     basePos = 0.125;
     bottomQuadrants = [[(- basePos), (- basePos)], [basePos, (- basePos)]];
-    util.shuffle(bottomQuadrants);
-    util.shuffle(number);
-    util.shuffle(letter);
-    number = number[0];
-    letter = letter[0];
+    function get_new_combination(previousNumber, previousLetter) {
+        var newLetter, newNumber;
+        util.shuffle(bottomQuadrants);
+        util.shuffle(number);
+        util.shuffle(letter);
+        newNumber = number[0];
+        newLetter = letter[0];
+        while (((newNumber === previousNumber) || (newLetter === previousLetter))) {
+            util.shuffle(number);
+            util.shuffle(letter);
+            newNumber = number[0];
+            newLetter = letter[0];
+        }
+        return [newNumber, newLetter];
+    }
+    number = ["1", "2", "3", "4", "5", "6", "7", "8"];
+    letter = ["A", "E", "I", "U", "G", "M", "K", "R"];
+    [number, letter] = get_new_combination(previousNumber, previousLetter);
     selectedQuadrant = bottomQuadrants[0];
     stimPos = selectedQuadrant;
     if (((Number.parseInt(number) % 2) === 0)) {
@@ -1356,6 +1377,10 @@ function NumberTask_PracticeRoutineEnd(snapshot) {
       }
     });
     psychoJS.experiment.addData('NumberTask_Practice.stopped', globalClock.getTime());
+    // Run 'End Routine' code from NumberTask_Code
+    previousNumber = number;
+    previousLetter = letter;
+    
     // was no response the correct answer?!
     if (NumberResponse.keys === undefined) {
       if (['None','none',undefined].includes(correctKey)) {
@@ -1717,11 +1742,22 @@ function LetterTask_PracticeRoutineBegin(snapshot) {
     letter = ["A", "E", "I", "U", "G", "M", "K", "R"];
     basePos = 0.125;
     quadrants = [[basePos, basePos], [(- basePos), basePos]];
-    util.shuffle(quadrants);
-    util.shuffle(number);
-    util.shuffle(letter);
-    number = number[0];
-    letter = letter[0];
+    function get_new_combination(previousNumber, previousLetter) {
+        var newLetter, newNumber;
+        util.shuffle(quadrants);
+        util.shuffle(number);
+        util.shuffle(letter);
+        newNumber = number[0];
+        newLetter = letter[0];
+        while (((newNumber === previousNumber) || (newLetter === previousLetter))) {
+            util.shuffle(number);
+            util.shuffle(letter);
+            newNumber = number[0];
+            newLetter = letter[0];
+        }
+        return [newNumber, newLetter];
+    }
+    [number, letter] = get_new_combination(previousNumber, previousLetter);
     selectedQuadrant = quadrants[0];
     stimPos = selectedQuadrant;
     if ((stimPos[1] > 0)) {
@@ -2269,8 +2305,6 @@ function reset_MixedRoutineEnd(snapshot) {
 }
 
 
-var numlist;
-var letterlist;
 var topPositions;
 var bottomPositions;
 var taskType;
@@ -2311,17 +2345,28 @@ function Mixed_TaskRoutineBegin(snapshot) {
     }
     _pj = {};
     _pj_snippets(_pj);
-    numlist = ["1", "2", "3", "4", "5", "6", "7", "8"];
-    letterlist = ["A", "E", "I", "U", "G", "M", "K", "R"];
+    number = ["1", "2", "3", "4", "5", "6", "7", "8"];
+    letter = ["A", "E", "I", "U", "G", "M", "K", "R"];
     basePos = 0.125;
     topPositions = [[(- basePos), basePos], [basePos, basePos]];
     bottomPositions = [[(- basePos), (- basePos)], [basePos, (- basePos)]];
-    util.shuffle(topPositions);
-    util.shuffle(bottomPositions);
-    util.shuffle(numlist);
-    util.shuffle(letterlist);
-    number = numlist[0];
-    letter = letterlist[0];
+    function get_new_combination(previousNumber, previousLetter) {
+        var newLetter, newNumber;
+        util.shuffle(topPositions);
+        util.shuffle(bottomPositions);
+        util.shuffle(number);
+        util.shuffle(letter);
+        newNumber = number[0];
+        newLetter = letter[0];
+        while (((newNumber === previousNumber) || (newLetter === previousLetter))) {
+            util.shuffle(number);
+            util.shuffle(letter);
+            newNumber = number[0];
+            newLetter = letter[0];
+        }
+        return [newNumber, newLetter];
+    }
+    [number, letter] = get_new_combination(previousNumber, previousLetter);
     if ((taskOrder === "letter")) {
         selectedQuadrant = topPositions[0];
     } else {
@@ -2493,6 +2538,9 @@ function Mixed_TaskRoutineEnd(snapshot) {
     trialtypelist.push(trialType);
     tasktypelist.push(taskType);
     acc_list.push(MixedResponse.corr);
+    previousNumber = number;
+    previousLetter = letter;
+    previousTask = taskType;
     
     // was no response the correct answer?!
     if (MixedResponse.keys === undefined) {
