@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 This experiment was created using PsychoPy3 Experiment Builder (v2024.1.4),
-    on July 02, 2024, at 16:26
+    on July 04, 2024, at 10:50
 If you publish work using this script the most relevant publication is:
 
     Peirce J, Gray JR, Simpson S, MacAskill M, Höchenberger R, Sogo H, Kastman E, Lindeløv JK. (2019) 
@@ -43,8 +43,9 @@ psychopyVersion = '2024.1.4'
 expName = 'task_switching'  # from the Builder filename that created this script
 # information about this experiment
 expInfo = {
-    'participant': f"{randint(0, 999999):06.0f}",
-    'session': '001',
+    '姓名': '王小明',
+    '電話': '0900-012-345',
+    '電子郵件': 'yourEmail@google.com',
     'date|hid': data.getDateStr(),
     'expName|hid': expName,
     'psychopyVersion|hid': psychopyVersion,
@@ -121,7 +122,7 @@ def setupData(expInfo, dataDir=None):
     # data file name stem = absolute path + name; later add .psyexp, .csv, .log, etc
     if dataDir is None:
         dataDir = _thisDir
-    filename = u'data/%s_%s_%s' % (expInfo['participant'], expName, expInfo['date'])
+    filename = u'data/%s_%s_%s' % (expInfo['姓名'], expName, expInfo['date'])
     # make sure filename is relative to dataDir
     if os.path.isabs(filename):
         dataDir = os.path.commonprefix([dataDir, filename])
@@ -388,6 +389,37 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
         frameDur = 1.0 / 60.0  # could not measure, so guess
     
     # Start Code - component code to be run after the window creation
+    
+    # --- Initialize components for Routine "Intro" ---
+    movie = visual.MovieStim(
+        win, name='movie',
+        filename='C:/Users/fuchi/OneDrive/AcroViz/06_Misc/20240802高齡健康產業博覽會/opening.mp4', movieLib='ffpyplayer',
+        loop=True, volume=1.0, noAudio=False,
+        pos=(0, 0), size=(1.789, 1), units=win.units,
+        ori=0.0, anchor='center',opacity=None, contrast=1.0,
+        depth=0
+    )
+    # Run 'Begin Experiment' code from Window_Size
+    thisExp.addData('windowSize', win.size)
+    win_width, win_height = win.size
+    Left_Rectangle = visual.Rect(
+        win=win, name='Left_Rectangle',units='norm', 
+        width=(1,2)[0], height=(1,2)[1],
+        ori=0.0, pos=(-0.5, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[-1.0000, -1.0000, -1.0000], fillColor=[-1.0000, -1.0000, -1.0000],
+        opacity=0.0, depth=-2.0, interpolate=True)
+    Right_Rectangle = visual.Rect(
+        win=win, name='Right_Rectangle',units='norm', 
+        width=(1,2)[0], height=(1,2)[1],
+        ori=0.0, pos=(0.5, 0), anchor='center',
+        lineWidth=1.0,     colorSpace='rgb',  lineColor=[1.0000, 0.7882, 0.5373], fillColor=[1.0000, 0.7882, 0.5373],
+        opacity=0.0, depth=-3.0, interpolate=True)
+    Left_Click = event.Mouse(win=win)
+    x, y = [None, None]
+    Left_Click.mouseClock = core.Clock()
+    Right_Click = event.Mouse(win=win)
+    x, y = [None, None]
+    Right_Click.mouseClock = core.Clock()
     
     # --- Initialize components for Routine "Instruction" ---
     # Run 'Begin Experiment' code from code
@@ -678,6 +710,231 @@ def run(expInfo, thisExp, win, globalClock=None, thisSession=None):
     expInfo['expStart'] = data.getDateStr(
         format='%Y-%m-%d %Hh%M.%S.%f %z', fractionalSecondDigits=6
     )
+    
+    # --- Prepare to start Routine "Intro" ---
+    continueRoutine = True
+    # update component parameters for each repeat
+    thisExp.addData('Intro.started', globalClock.getTime(format='float'))
+    # setup some python lists for storing info about the Left_Click
+    Left_Click.x = []
+    Left_Click.y = []
+    Left_Click.leftButton = []
+    Left_Click.midButton = []
+    Left_Click.rightButton = []
+    Left_Click.time = []
+    Left_Click.clicked_name = []
+    gotValidClick = False  # until a click is received
+    # setup some python lists for storing info about the Right_Click
+    Right_Click.x = []
+    Right_Click.y = []
+    Right_Click.leftButton = []
+    Right_Click.midButton = []
+    Right_Click.rightButton = []
+    Right_Click.time = []
+    Right_Click.clicked_name = []
+    gotValidClick = False  # until a click is received
+    # keep track of which components have finished
+    IntroComponents = [movie, Left_Rectangle, Right_Rectangle, Left_Click, Right_Click]
+    for thisComponent in IntroComponents:
+        thisComponent.tStart = None
+        thisComponent.tStop = None
+        thisComponent.tStartRefresh = None
+        thisComponent.tStopRefresh = None
+        if hasattr(thisComponent, 'status'):
+            thisComponent.status = NOT_STARTED
+    # reset timers
+    t = 0
+    _timeToFirstFrame = win.getFutureFlipTime(clock="now")
+    frameN = -1
+    
+    # --- Run Routine "Intro" ---
+    routineForceEnded = not continueRoutine
+    while continueRoutine:
+        # get current time
+        t = routineTimer.getTime()
+        tThisFlip = win.getFutureFlipTime(clock=routineTimer)
+        tThisFlipGlobal = win.getFutureFlipTime(clock=None)
+        frameN = frameN + 1  # number of completed frames (so 0 is the first frame)
+        # update/draw components on each frame
+        
+        # *movie* updates
+        
+        # if movie is starting this frame...
+        if movie.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            movie.frameNStart = frameN  # exact frame index
+            movie.tStart = t  # local t and not account for scr refresh
+            movie.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(movie, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'movie.started')
+            # update status
+            movie.status = STARTED
+            movie.setAutoDraw(True)
+            movie.play()
+        
+        # *Left_Rectangle* updates
+        
+        # if Left_Rectangle is starting this frame...
+        if Left_Rectangle.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Left_Rectangle.frameNStart = frameN  # exact frame index
+            Left_Rectangle.tStart = t  # local t and not account for scr refresh
+            Left_Rectangle.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Left_Rectangle, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Left_Rectangle.started')
+            # update status
+            Left_Rectangle.status = STARTED
+            Left_Rectangle.setAutoDraw(True)
+        
+        # if Left_Rectangle is active this frame...
+        if Left_Rectangle.status == STARTED:
+            # update params
+            pass
+        
+        # *Right_Rectangle* updates
+        
+        # if Right_Rectangle is starting this frame...
+        if Right_Rectangle.status == NOT_STARTED and tThisFlip >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Right_Rectangle.frameNStart = frameN  # exact frame index
+            Right_Rectangle.tStart = t  # local t and not account for scr refresh
+            Right_Rectangle.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Right_Rectangle, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.timestampOnFlip(win, 'Right_Rectangle.started')
+            # update status
+            Right_Rectangle.status = STARTED
+            Right_Rectangle.setAutoDraw(True)
+        
+        # if Right_Rectangle is active this frame...
+        if Right_Rectangle.status == STARTED:
+            # update params
+            pass
+        # *Left_Click* updates
+        
+        # if Left_Click is starting this frame...
+        if Left_Click.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Left_Click.frameNStart = frameN  # exact frame index
+            Left_Click.tStart = t  # local t and not account for scr refresh
+            Left_Click.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Left_Click, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.addData('Left_Click.started', t)
+            # update status
+            Left_Click.status = STARTED
+            Left_Click.mouseClock.reset()
+            prevButtonState = Left_Click.getPressed()  # if button is down already this ISN'T a new click
+        if Left_Click.status == STARTED:  # only update if started and not finished!
+            buttons = Left_Click.getPressed()
+            if buttons != prevButtonState:  # button state changed?
+                prevButtonState = buttons
+                if sum(buttons) > 0:  # state changed to a new click
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    clickableList = environmenttools.getFromNames(Left_Rectangle, namespace=locals())
+                    for obj in clickableList:
+                        # is this object clicked on?
+                        if obj.contains(Left_Click):
+                            gotValidClick = True
+                            Left_Click.clicked_name.append(obj.name)
+                    x, y = Left_Click.getPos()
+                    Left_Click.x.append(x)
+                    Left_Click.y.append(y)
+                    buttons = Left_Click.getPressed()
+                    Left_Click.leftButton.append(buttons[0])
+                    Left_Click.midButton.append(buttons[1])
+                    Left_Click.rightButton.append(buttons[2])
+                    Left_Click.time.append(Left_Click.mouseClock.getTime())
+                    
+                    continueRoutine = False  # end routine on response
+        # *Right_Click* updates
+        
+        # if Right_Click is starting this frame...
+        if Right_Click.status == NOT_STARTED and t >= 0.0-frameTolerance:
+            # keep track of start time/frame for later
+            Right_Click.frameNStart = frameN  # exact frame index
+            Right_Click.tStart = t  # local t and not account for scr refresh
+            Right_Click.tStartRefresh = tThisFlipGlobal  # on global time
+            win.timeOnFlip(Right_Click, 'tStartRefresh')  # time at next scr refresh
+            # add timestamp to datafile
+            thisExp.addData('Right_Click.started', t)
+            # update status
+            Right_Click.status = STARTED
+            Right_Click.mouseClock.reset()
+            prevButtonState = Right_Click.getPressed()  # if button is down already this ISN'T a new click
+        if Right_Click.status == STARTED:  # only update if started and not finished!
+            buttons = Right_Click.getPressed()
+            if buttons != prevButtonState:  # button state changed?
+                prevButtonState = buttons
+                if sum(buttons) > 0:  # state changed to a new click
+                    # check if the mouse was inside our 'clickable' objects
+                    gotValidClick = False
+                    clickableList = environmenttools.getFromNames(Right_Rectangle, namespace=locals())
+                    for obj in clickableList:
+                        # is this object clicked on?
+                        if obj.contains(Right_Click):
+                            gotValidClick = True
+                            Right_Click.clicked_name.append(obj.name)
+                    x, y = Right_Click.getPos()
+                    Right_Click.x.append(x)
+                    Right_Click.y.append(y)
+                    buttons = Right_Click.getPressed()
+                    Right_Click.leftButton.append(buttons[0])
+                    Right_Click.midButton.append(buttons[1])
+                    Right_Click.rightButton.append(buttons[2])
+                    Right_Click.time.append(Right_Click.mouseClock.getTime())
+                    
+                    continueRoutine = False  # end routine on response
+        
+        # check for quit (typically the Esc key)
+        if defaultKeyboard.getKeys(keyList=["escape"]):
+            thisExp.status = FINISHED
+        if thisExp.status == FINISHED or endExpNow:
+            endExperiment(thisExp, win=win)
+            return
+        
+        # check if all components have finished
+        if not continueRoutine:  # a component has requested a forced-end of Routine
+            routineForceEnded = True
+            break
+        continueRoutine = False  # will revert to True if at least one component still running
+        for thisComponent in IntroComponents:
+            if hasattr(thisComponent, "status") and thisComponent.status != FINISHED:
+                continueRoutine = True
+                break  # at least one component has not yet finished
+        
+        # refresh the screen
+        if continueRoutine:  # don't flip if this routine is over or we'll get a blank screen
+            win.flip()
+    
+    # --- Ending Routine "Intro" ---
+    for thisComponent in IntroComponents:
+        if hasattr(thisComponent, "setAutoDraw"):
+            thisComponent.setAutoDraw(False)
+    thisExp.addData('Intro.stopped', globalClock.getTime(format='float'))
+    movie.stop()  # ensure movie has stopped at end of Routine
+    # store data for thisExp (ExperimentHandler)
+    thisExp.addData('Left_Click.x', Left_Click.x)
+    thisExp.addData('Left_Click.y', Left_Click.y)
+    thisExp.addData('Left_Click.leftButton', Left_Click.leftButton)
+    thisExp.addData('Left_Click.midButton', Left_Click.midButton)
+    thisExp.addData('Left_Click.rightButton', Left_Click.rightButton)
+    thisExp.addData('Left_Click.time', Left_Click.time)
+    thisExp.addData('Left_Click.clicked_name', Left_Click.clicked_name)
+    # store data for thisExp (ExperimentHandler)
+    thisExp.addData('Right_Click.x', Right_Click.x)
+    thisExp.addData('Right_Click.y', Right_Click.y)
+    thisExp.addData('Right_Click.leftButton', Right_Click.leftButton)
+    thisExp.addData('Right_Click.midButton', Right_Click.midButton)
+    thisExp.addData('Right_Click.rightButton', Right_Click.rightButton)
+    thisExp.addData('Right_Click.time', Right_Click.time)
+    thisExp.addData('Right_Click.clicked_name', Right_Click.clicked_name)
+    thisExp.nextEntry()
+    # the Routine "Intro" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset()
     
     # set up handler to look after randomisation of conditions etc
     Instruction_Loop = data.TrialHandler(nReps=1000.0, method='sequential', 
@@ -2970,6 +3227,7 @@ def quit(thisExp, win=None, thisSession=None):
 # if running this experiment as a script...
 if __name__ == '__main__':
     # call all functions in order
+    expInfo = showExpInfoDlg(expInfo=expInfo)
     thisExp = setupData(expInfo=expInfo)
     logFile = setupLogging(filename=thisExp.dataFileName)
     win = setupWindow(expInfo=expInfo)

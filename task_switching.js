@@ -14,8 +14,9 @@ const { round } = util;
 // store info about the experiment session:
 let expName = 'task_switching';  // from the Builder filename that created this script
 let expInfo = {
-    'participant': `${util.pad(Number.parseFloat(util.randint(0, 999999)).toFixed(0), 6)}`,
-    'session': '001',
+    '姓名': '王小明',
+    '電話': '0900-012-345',
+    '電子郵件': 'yourEmail@google.com',
 };
 
 // Start code blocks for 'Before Experiment'
@@ -46,6 +47,9 @@ psychoJS.scheduleCondition(function() { return (psychoJS.gui.dialogComponent.but
 // flowScheduler gets run if the participants presses OK
 flowScheduler.add(updateInfo); // add timeStamp
 flowScheduler.add(experimentInit);
+flowScheduler.add(IntroRoutineBegin());
+flowScheduler.add(IntroRoutineEachFrame());
+flowScheduler.add(IntroRoutineEnd());
 const Instruction_LoopLoopScheduler = new Scheduler(psychoJS);
 flowScheduler.add(Instruction_LoopLoopBegin(Instruction_LoopLoopScheduler));
 flowScheduler.add(Instruction_LoopLoopScheduler);
@@ -98,6 +102,7 @@ psychoJS.start({
   expInfo: expInfo,
   resources: [
     // resources:
+    {'name': 'stimuli/opening.mp4', 'path': 'stimuli/opening.mp4'},
     {'name': 'stimuli/task_switch_backimg.png', 'path': 'stimuli/task_switch_backimg.png'},
     {'name': 'default.png', 'path': 'https://pavlovia.org/assets/default/default.png'},
     {'name': 'stimuli/readynumbers.png', 'path': 'stimuli/readynumbers.png'},
@@ -148,7 +153,7 @@ async function updateInfo() {
   
 
   
-  psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["participant"]}_${expName}_${expInfo["date"]}`);
+  psychoJS.experiment.dataFileName = (("." + "/") + `data/${expInfo["\u59d3\u540d"]}_${expName}_${expInfo["date"]}`);
   psychoJS.experiment.field_separator = '\t';
 
 
@@ -156,6 +161,13 @@ async function updateInfo() {
 }
 
 
+var IntroClock;
+var movieClock;
+var movie;
+var Left_Rectangle;
+var Right_Rectangle;
+var Left_Click;
+var Right_Click;
 var InstructionClock;
 var previousTask;
 var slideN;
@@ -212,6 +224,57 @@ var Thank_you;
 var globalClock;
 var routineTimer;
 async function experimentInit() {
+  // Initialize components for Routine "Intro"
+  IntroClock = new util.Clock();
+  movieClock = new util.Clock();
+  movie = new visual.MovieStim({
+    win: psychoJS.window,
+    name: 'movie',
+    units: psychoJS.window.units,
+    movie: 'stimuli/opening.mp4',
+    pos: [0, 0],
+    anchor: 'center',
+    size: [1.789, 1],
+    ori: 0.0,
+    opacity: undefined,
+    loop: true,
+    noAudio: false,
+    depth: 0
+    });
+  Left_Rectangle = new visual.Rect ({
+    win: psychoJS.window, name: 'Left_Rectangle', units : 'norm', 
+    width: [1, 2][0], height: [1, 2][1],
+    ori: 0.0, pos: [(- 0.5), 0],
+    anchor: 'center',
+    lineWidth: 1.0, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: new util.Color([(- 1.0), (- 1.0), (- 1.0)]),
+    fillColor: [(- 1.0), (- 1.0), (- 1.0)],
+    opacity: 0.0, depth: -1, interpolate: true,
+  });
+  
+  Right_Rectangle = new visual.Rect ({
+    win: psychoJS.window, name: 'Right_Rectangle', units : 'norm', 
+    width: [1, 2][0], height: [1, 2][1],
+    ori: 0.0, pos: [0.5, 0],
+    anchor: 'center',
+    lineWidth: 1.0, 
+    colorSpace: 'rgb',
+    lineColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: new util.Color([1.0, 0.7882, 0.5373]),
+    fillColor: [1.0, 0.7882, 0.5373],
+    opacity: 0.0, depth: -2, interpolate: true,
+  });
+  
+  Left_Click = new core.Mouse({
+    win: psychoJS.window,
+  });
+  Left_Click.mouseClock = new util.Clock();
+  Right_Click = new core.Mouse({
+    win: psychoJS.window,
+  });
+  Right_Click.mouseClock = new util.Clock();
   // Initialize components for Routine "Instruction"
   InstructionClock = new util.Clock();
   // Run 'Begin Experiment' code from code
@@ -566,6 +629,236 @@ async function experimentInit() {
 }
 
 
+var t;
+var frameN;
+var continueRoutine;
+var gotValidClick;
+var IntroComponents;
+function IntroRoutineBegin(snapshot) {
+  return async function () {
+    TrialHandler.fromSnapshot(snapshot); // ensure that .thisN vals are up to date
+    
+    //--- Prepare to start Routine 'Intro' ---
+    t = 0;
+    IntroClock.reset(); // clock
+    frameN = -1;
+    continueRoutine = true; // until we're told otherwise
+    // update component parameters for each repeat
+    psychoJS.experiment.addData('Intro.started', globalClock.getTime());
+    // setup some python lists for storing info about the Left_Click
+    // current position of the mouse:
+    Left_Click.x = [];
+    Left_Click.y = [];
+    Left_Click.leftButton = [];
+    Left_Click.midButton = [];
+    Left_Click.rightButton = [];
+    Left_Click.time = [];
+    Left_Click.clicked_name = [];
+    gotValidClick = false; // until a click is received
+    // setup some python lists for storing info about the Right_Click
+    // current position of the mouse:
+    Right_Click.x = [];
+    Right_Click.y = [];
+    Right_Click.leftButton = [];
+    Right_Click.midButton = [];
+    Right_Click.rightButton = [];
+    Right_Click.time = [];
+    Right_Click.clicked_name = [];
+    gotValidClick = false; // until a click is received
+    // keep track of which components have finished
+    IntroComponents = [];
+    IntroComponents.push(movie);
+    IntroComponents.push(Left_Rectangle);
+    IntroComponents.push(Right_Rectangle);
+    IntroComponents.push(Left_Click);
+    IntroComponents.push(Right_Click);
+    
+    for (const thisComponent of IntroComponents)
+      if ('status' in thisComponent)
+        thisComponent.status = PsychoJS.Status.NOT_STARTED;
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
+var prevButtonState;
+var _mouseButtons;
+var _mouseXYs;
+function IntroRoutineEachFrame() {
+  return async function () {
+    //--- Loop for each frame of Routine 'Intro' ---
+    // get current time
+    t = IntroClock.getTime();
+    frameN = frameN + 1;// number of completed frames (so 0 is the first frame)
+    // update/draw components on each frame
+    
+    // *movie* updates
+    if (t >= 0.0 && movie.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      movie.tStart = t;  // (not accounting for frame time here)
+      movie.frameNStart = frameN;  // exact frame index
+      
+      movie.setAutoDraw(true);
+      movie.play();
+    }
+    
+    
+    // *Left_Rectangle* updates
+    if (t >= 0.0 && Left_Rectangle.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      Left_Rectangle.tStart = t;  // (not accounting for frame time here)
+      Left_Rectangle.frameNStart = frameN;  // exact frame index
+      
+      Left_Rectangle.setAutoDraw(true);
+    }
+    
+    
+    // *Right_Rectangle* updates
+    if (t >= 0.0 && Right_Rectangle.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      Right_Rectangle.tStart = t;  // (not accounting for frame time here)
+      Right_Rectangle.frameNStart = frameN;  // exact frame index
+      
+      Right_Rectangle.setAutoDraw(true);
+    }
+    
+    // *Left_Click* updates
+    if (t >= 0.0 && Left_Click.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      Left_Click.tStart = t;  // (not accounting for frame time here)
+      Left_Click.frameNStart = frameN;  // exact frame index
+      
+      Left_Click.status = PsychoJS.Status.STARTED;
+      Left_Click.mouseClock.reset();
+      prevButtonState = Left_Click.getPressed();  // if button is down already this ISN'T a new click
+      }
+    if (Left_Click.status === PsychoJS.Status.STARTED) {  // only update if started and not finished!
+      _mouseButtons = Left_Click.getPressed();
+      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
+        prevButtonState = _mouseButtons;
+        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
+          // check if the mouse was inside our 'clickable' objects
+          gotValidClick = false;
+          for (const obj of [Left_Rectangle]) {
+            if (obj.contains(Left_Click)) {
+              gotValidClick = true;
+              Left_Click.clicked_name.push(obj.name)
+            }
+          }
+          _mouseXYs = Left_Click.getPos();
+          Left_Click.x.push(_mouseXYs[0]);
+          Left_Click.y.push(_mouseXYs[1]);
+          Left_Click.leftButton.push(_mouseButtons[0]);
+          Left_Click.midButton.push(_mouseButtons[1]);
+          Left_Click.rightButton.push(_mouseButtons[2]);
+          Left_Click.time.push(Left_Click.mouseClock.getTime());
+          // end routine on response
+          continueRoutine = false;
+        }
+      }
+    }
+    // *Right_Click* updates
+    if (t >= 0.0 && Right_Click.status === PsychoJS.Status.NOT_STARTED) {
+      // keep track of start time/frame for later
+      Right_Click.tStart = t;  // (not accounting for frame time here)
+      Right_Click.frameNStart = frameN;  // exact frame index
+      
+      Right_Click.status = PsychoJS.Status.STARTED;
+      Right_Click.mouseClock.reset();
+      prevButtonState = Right_Click.getPressed();  // if button is down already this ISN'T a new click
+      }
+    if (Right_Click.status === PsychoJS.Status.STARTED) {  // only update if started and not finished!
+      _mouseButtons = Right_Click.getPressed();
+      if (!_mouseButtons.every( (e,i,) => (e == prevButtonState[i]) )) { // button state changed?
+        prevButtonState = _mouseButtons;
+        if (_mouseButtons.reduce( (e, acc) => (e+acc) ) > 0) { // state changed to a new click
+          // check if the mouse was inside our 'clickable' objects
+          gotValidClick = false;
+          for (const obj of [Right_Rectangle]) {
+            if (obj.contains(Right_Click)) {
+              gotValidClick = true;
+              Right_Click.clicked_name.push(obj.name)
+            }
+          }
+          _mouseXYs = Right_Click.getPos();
+          Right_Click.x.push(_mouseXYs[0]);
+          Right_Click.y.push(_mouseXYs[1]);
+          Right_Click.leftButton.push(_mouseButtons[0]);
+          Right_Click.midButton.push(_mouseButtons[1]);
+          Right_Click.rightButton.push(_mouseButtons[2]);
+          Right_Click.time.push(Right_Click.mouseClock.getTime());
+          // end routine on response
+          continueRoutine = false;
+        }
+      }
+    }
+    // check for quit (typically the Esc key)
+    if (psychoJS.experiment.experimentEnded || psychoJS.eventManager.getKeys({keyList:['escape']}).length > 0) {
+      return quitPsychoJS('The [Escape] key was pressed. Goodbye!', false);
+    }
+    
+    // check if the Routine should terminate
+    if (!continueRoutine) {  // a component has requested a forced-end of Routine
+      return Scheduler.Event.NEXT;
+    }
+    
+    continueRoutine = false;  // reverts to True if at least one component still running
+    for (const thisComponent of IntroComponents)
+      if ('status' in thisComponent && thisComponent.status !== PsychoJS.Status.FINISHED) {
+        continueRoutine = true;
+        break;
+      }
+    
+    // refresh the screen if continuing
+    if (continueRoutine) {
+      return Scheduler.Event.FLIP_REPEAT;
+    } else {
+      return Scheduler.Event.NEXT;
+    }
+  };
+}
+
+
+function IntroRoutineEnd(snapshot) {
+  return async function () {
+    //--- Ending Routine 'Intro' ---
+    for (const thisComponent of IntroComponents) {
+      if (typeof thisComponent.setAutoDraw === 'function') {
+        thisComponent.setAutoDraw(false);
+      }
+    }
+    psychoJS.experiment.addData('Intro.stopped', globalClock.getTime());
+    movie.stop();  // ensure movie has stopped at end of Routine
+    // store data for psychoJS.experiment (ExperimentHandler)
+    if (Left_Click.x) {  psychoJS.experiment.addData('Left_Click.x', Left_Click.x[0])};
+    if (Left_Click.y) {  psychoJS.experiment.addData('Left_Click.y', Left_Click.y[0])};
+    if (Left_Click.leftButton) {  psychoJS.experiment.addData('Left_Click.leftButton', Left_Click.leftButton[0])};
+    if (Left_Click.midButton) {  psychoJS.experiment.addData('Left_Click.midButton', Left_Click.midButton[0])};
+    if (Left_Click.rightButton) {  psychoJS.experiment.addData('Left_Click.rightButton', Left_Click.rightButton[0])};
+    if (Left_Click.time) {  psychoJS.experiment.addData('Left_Click.time', Left_Click.time[0])};
+    if (Left_Click.clicked_name) {  psychoJS.experiment.addData('Left_Click.clicked_name', Left_Click.clicked_name[0])};
+    
+    // store data for psychoJS.experiment (ExperimentHandler)
+    if (Right_Click.x) {  psychoJS.experiment.addData('Right_Click.x', Right_Click.x[0])};
+    if (Right_Click.y) {  psychoJS.experiment.addData('Right_Click.y', Right_Click.y[0])};
+    if (Right_Click.leftButton) {  psychoJS.experiment.addData('Right_Click.leftButton', Right_Click.leftButton[0])};
+    if (Right_Click.midButton) {  psychoJS.experiment.addData('Right_Click.midButton', Right_Click.midButton[0])};
+    if (Right_Click.rightButton) {  psychoJS.experiment.addData('Right_Click.rightButton', Right_Click.rightButton[0])};
+    if (Right_Click.time) {  psychoJS.experiment.addData('Right_Click.time', Right_Click.time[0])};
+    if (Right_Click.clicked_name) {  psychoJS.experiment.addData('Right_Click.clicked_name', Right_Click.clicked_name[0])};
+    
+    // the Routine "Intro" was not non-slip safe, so reset the non-slip timer
+    routineTimer.reset();
+    
+    // Routines running outside a loop should always advance the datafile row
+    if (currentLoop === psychoJS.experiment) {
+      psychoJS.experiment.nextEntry(snapshot);
+    }
+    return Scheduler.Event.NEXT;
+  }
+}
+
+
 var Instruction_Loop;
 function Instruction_LoopLoopBegin(Instruction_LoopLoopScheduler, snapshot) {
   return async function() {
@@ -892,9 +1185,6 @@ function BlockLoopEndIteration(scheduler, snapshot) {
 }
 
 
-var t;
-var frameN;
-var continueRoutine;
 var _key_resp_allKeys;
 var InstructionComponents;
 function InstructionRoutineBegin(snapshot) {
